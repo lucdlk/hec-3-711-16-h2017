@@ -68,12 +68,13 @@ function selectDestinataires() {
 function performTransfert() {
     global $db;
 
-    $user_id = $_SESSION['user_id'];
+    $user_id = intval($_SESSION['user_id']);
     $transaction_type = $_POST['transaction_type'];
-    $to_user_id = $_POST['to_user_id'];
+    $to_user_id = intval($_POST['to_user_id']);
     $description = $_POST['description'];
     $amount =  floatval($_POST['amount']);
     $created_at = date('Y-m-d');
+
 
     // Enlève l'argent du compte de l'utilisateur envoyant le virement.
     $query = "INSERT INTO transactions (user_id, transaction_type, description, amount, created_at) 
@@ -94,7 +95,7 @@ function performTransfert() {
 function performPaiement() {
     global $db;
 
-    $user_id = $_SESSION['user_id'];
+    $user_id = intval($_SESSION['user_id']);
     $transaction_type = $_POST['transaction_type'];
     $description = $_POST['description'];
     $amount =  floatval($_POST['amount']);
@@ -105,5 +106,6 @@ function performPaiement() {
         VALUES ($user_id, '$transaction_type', '$description', -$amount, '$created_at')";
     $db->exec($query);
 }
+
 
 ?>
