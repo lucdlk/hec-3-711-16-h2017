@@ -1,0 +1,14 @@
+
+p {
+    font-size: 24px !important;
+    color: #de8732;
+    background-color: green;
+}
+
+div {
+    background-color: red;
+}
+
+.class-test {
+    width: 150px;
+}
