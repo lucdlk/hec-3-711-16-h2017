@@ -1,6 +1,18 @@
 <?php
 
 /**
+ * Initialisation de la connexion à la base de données.
+ * Changer 'danielparpal' pour votre nom d'utilisateur.
+ */
+try {
+    $db = new PDO('mysql:host=localhost;dbname=c9', 'danielparpal');
+} catch (PDOException $e) {
+    echo "Connection failed: " . $e->getMessage();
+}
+
+$db->exec("set names utf8");
+
+/**
  * Trouve un utilisateur dans la base de données en utilisant son courriel.
  * Retourne : id, nom et mot de passe
  * Note : requis pour effectuer le login de l'utilisateur
