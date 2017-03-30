@@ -12,11 +12,16 @@ try {
 $db->exec("set names utf8");
 
 
+
 /**
  * Trouve tous les produits à vendre dans la base de données.
  */
 $query = $db->query('SELECT * from people');
+// $query = $db->query('SELECT * from people WHERE id=2');
+
 $results = $query->fetchAll(PDO::FETCH_OBJ);
+// $results = $query->fetch(PDO::FETCH_OBJ);
+var_dump($results);die;
 
 /**
  * Utilisation des résultats obtenus.
@@ -28,7 +33,7 @@ $results = $query->fetchAll(PDO::FETCH_OBJ);
  */
 foreach($results as $result)
 {
-    echo $result->name . '<br>';
+    echo $result->addresss . '<br>';
 }
 
 ?>
